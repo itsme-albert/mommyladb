@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\Api\UserController;
+use App\Http\Controllers\CashierController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -60,3 +61,11 @@ Route::delete('carts/{cart}', [CartController::class, 'destroy']);
 // get carts using userID
 Route::get('carts/{user_id}', [CartController::class, 'showByUser']);
 
+// Cashier Routes Starts Here ===>
+
+Route::get('get-table-order', [CashierController::class, 'dine']);
+Route::get('get-online-order', [CashierController::class, 'online']);
+Route::post('add-payment', [CashierController::class, 'payment']);
+Route::get('get-receipt/{id}', [CashierController::class, 'receipt']);
+
+// Cashier Routes Ends Here <===
